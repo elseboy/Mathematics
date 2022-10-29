@@ -44,6 +44,6 @@
  |  0  |  1  |        1         |        1        |                            1                             |
  |  1  |  0  |        0         |        0        |                            1                             |
  |  1  |  1  |        1         |        1        |                            1                             |
-$\therefore$  $p \rightarrow q \Longleftrightarrow \neg p \vee q$
+$\therefore p \rightarrow q \Longleftrightarrow \neg p \vee q$
 	4. Xixixi
 		
