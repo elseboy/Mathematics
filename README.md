@@ -17,7 +17,7 @@ ___
 
 1. a
 	1.  aa
-	- 句首Tab
+	- 句首tab
 2. b
 3. c
 
@@ -31,16 +31,28 @@ ___
 
 
 ```java
-list.stream().map(Object::getxx).filter(Objects::nonNull).distinct().collect(Collectors.toList());
+list.stream().map(object::getxx).filter(objects::nonnull).distinct().collect(collectors.tolist());
 ```
 
-	public String listToString(List list, char separator) {
-	        StringBuilder sb = new StringBuilder();
+	public string listtostring(list list, char separator) {
+	        stringbuilder sb = new stringbuilder();
 	        for (int i = 0; i < list.size(); i++) {
             sb.append(list.get(i)).append(separator);
         }
-        return sb.toString().substring(0, sb.toString().length() - 1);
+        return sb.tostring().substring(0, sb.tostring().length() - 1);
     }
 
 图片
 ![索隆](https://images7.alphacoders.com/399/399228.jpg)
+
+x  删除当前字符
+dw 删除下一个单词
+d$ 删除光标之后的剩余部分
+
+cw 删除下一个单词进入 insert 模式
+c$ 删除光标之后的剩余部分进入 insert 模式
+o 下一行插入
+
+
+
+
