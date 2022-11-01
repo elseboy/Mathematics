@@ -12,3 +12,5 @@ nmap ]] $
 " previous/next of line
 nmap < (
 nmap > )
+
+iunmap <C-c>
