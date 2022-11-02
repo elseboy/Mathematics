@@ -185,3 +185,209 @@ graph
 	b-->c
 	a-->a
 ```
+
+##### 4. 关系幂运算
+关系的 0 次幂就等于恒等关系
+关系的 1 次幂就等于它自己
+$$
+\begin{cases}
+R^0 = I_A \\
+R^{n+1} = R^n \circ R (n \geq 0)  \\
+\end{cases}
+$$
+例：
+设 A=(a, b, c), $R \subseteq A*A$
+R={<a, b>,<b, a>,<a, c>}, 求 R 的各次幂
+$\because R^0 = I_A$, 其实说白了就只有环
+G ($R^0$):
+``` mermaid
+graph
+	a-->a
+	b-->b
+	c-->c
+```
+$\because R^1 = R$, 也就是只有它自己
+G ($R^1$):
+``` mermaid
+graph
+	a-->b
+	b-->a
+	a-->c
+```
+$R^2 = R \circ R = {<a, a>,<b, b>,<b, c>}$
+从 a 出发到 b 又能回到 a, 合成的话就有 a, a, 所以 a 这里有环
+从 b 出发到 a 又能回到 b, 合成的话就有 b, b, 所以 b 这里有环
+从 b 出发到 c 就只有单边
+G ($R^2$):
+``` mermaid
+graph
+	a-->a
+	b-->b
+	b-->c
+	a-.合成a,a.->a
+	b-.合成b,b.->b
+	b-.单边b,c.->c
+```
+$R^3 = R^2 \circ R = {<a, b>, <b , a>, <a, c>} = R^1$
+相当于在关系 R 里面找长度为 3 的边 
+a->b->a->c，b->a->b->a，a->b->a->b
+G ($R^3$):
+``` mermaid
+graph
+	a-->b
+	b-->a
+	a-->c
+```
+$\therefore$
+$R^0 = I_A$
+$R^{2k+1 （奇数次幂）} = R, k = 0, 1 , 2...$
+$R^{2k （偶数次幂）} = R^2, k = 1 , 2...$
+
+定理：
+设 $R\subseteq A*A, m, n \in N$, 则：
+	$R^m \circ R^n = R^{m+n}$
+	$(R^m)^n = R^{m*n}$
+证明：给定 m, 对 n 归纳
+n=0 时，$R^m \circ R^0 = R^m \circ I_A = R^m = R^{m+0}$
+假设 $R^m \circ R^n = R^{m+n}$, 则 
+$R^m \circ R^{n+1} = R^m \circ (R^n \circ R^1) = (R^m \circ R^n) \circ R^1 = R^{m+n} \circ R = R^{(m+n)+1} = R^{m+(n+1)}$
+
+##### 5. 关系闭包
+必须要有三个性质: 
+1. 包含给定的元素
+2. 具有给定的性质
+3. 是最小的二元关系 
+	1. 求交就是最小
+	2. 任意选取的集合都比给定的集合还大
+自反闭包 r (R)
+对称闭包 s (R)
+传递闭包 t (R)
+例:
+R = { < a , b > , < b , a > , < b , c > , < c , d > }
+最小也就是说自反
+
+- 自反闭包：
+G (r (R)):
+``` mermaid
+graph LR
+	a-->b
+	b-->a
+	b-->c
+	c-->d
+	a.->a
+	b.->b
+	c.->c
+	d.->d
+```
+也就是说对角线填 1 即可
+M (r (R)): 
+
+$$
+\left[
+\begin{matrix}
+\textcolor{red}{1} & 1 & 0 & 0 \\
+1 & \textcolor{red}{1} & 1 & 0 \\
+0 & 0 & \textcolor{red}{1} & 1 \\
+0 & 0 & 0 & \textcolor{red}{1} \\
+\end{matrix}
+\right]
+$$
+
+- 对称闭包：
+G (s (R)):
+``` mermaid
+graph LR
+	a-->b
+	b-->a
+	b-->c
+	c-->d
+	c.->b
+	d.->c
+```
+也就是说主对角线对齐，对角线两边的值对称
+M (s (R)):
+$$
+\left[
+\begin{matrix}
+0 & 1 & 0 & 0 \\
+1 & 0 & 1 & 0 \\
+0 & \textcolor{red}{1} & 0 & 1 \\
+0 & 0 & \textcolor{red}{1} & 0 \\
+\end{matrix}
+\right]
+$$
+- 传递闭包
+G (s (R)):
+``` mermaid
+graph LR
+	a-->b
+	b-->a
+	b-->c
+	c-->d
+	a-.1.->a
+	a-.2.->c
+	a-.3.->d
+	b-.4.->b
+	b-.5.->d
+```
+也就是说只加长度为 2 的边
+t (R) = $\textcolor{red}{R}  + \textcolor{red}{R^2}\ (R \circ R) + \textcolor{red}{R^3}\ (R^2 \circ R) + \textcolor{red}{R^4}\ (R^3 \circ R)$ 
+$M (R)$ = 
+$$
+\left[
+\begin{matrix}
+0 & 1 & 0 & 0 \\
+1 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+\end{matrix}
+\right]
+$$
+
+$m*n$ 得到
+$M (R^2) = R \circ R$  = 
+$$
+\left[
+\begin{matrix}
+1 & 0 & 1 & 0 \\
+0 & 1 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{matrix}
+\right]
+$$
+$M (R^3) = R^2 \circ R$ = 
+$$
+\left[
+\begin{matrix}
+0 & 1 & 0 & 1 \\
+1 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{matrix}
+\right]
+$$
+$M (R^4) = R^3 \circ R = M (R^2)$ = 
+$$
+\left[
+\begin{matrix}
+1 & 0 & 1 & 0 \\
+0 & 1 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{matrix}
+\right]
+$$
+出现循环为止，然后将前面的相加或 $\vee$ 起来即可
+即 $M (t (R)) = M (R) \vee M (R^2) \vee M (R^3)$ = 
+$$
+\left[
+\begin{matrix}
+\textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} \\
+\textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} \\
+0 & 0 & 0 & \textcolor{red}{1} \\
+0 & 0 & 0 & 0 \\
+\end{matrix}
+\right]
+$$
+##### 6. 等价关系
