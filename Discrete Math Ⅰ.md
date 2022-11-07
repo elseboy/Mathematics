@@ -569,4 +569,68 @@ N 是归纳集，证明 N= $\cap D = \cup\{ v | v 是空纳集\}$ = $\{x | \fora
 	$\therefore \ N 对后继封闭$
 
 ##### 4. 自然数的性质
+1. 传递集合：简单来说就是元素的元素在集合里面就是传递集合
+1) A 为传递集
+2) $\cup A \subseteq A$
+3) $\forall x (x \in A \Longrightarrow x \subseteq A)$
+4) $A \subseteq P (A)$
 
+2. A 为传递集 $\Longleftrightarrow$ P (A) 为传递集
+A 为传递集
+$\Longleftrightarrow A \subseteq P(A)$ 【定理 1】
+$\Longleftrightarrow \cup P (A) \subseteq P(A)$ 【A= $\cup P (A)$ 】
+$\Longleftrightarrow P(A)是传递集$ 【定理 1】
+例: A 为传递集 $\Longleftrightarrow \cup (A^+) = A$
+$\cup (A^+)$ 
+= $\cup (A \cup \{A\})$ 
+= $(\cup A) \cup (\cup\{A\})$ 
+= $(\cup A) \cup A$ 
+= A
+
+3. 递归定义
+$a \in A, F: A \longrightarrow A$
+$h (0) = a \\h (n+1) = F (h (n)), \forall n \in N$
+$$
+\left\{
+\begin{array}{l}
+h (0) = a \\\\
+h (n+1) = F (h (n)), \forall n \in N
+\end{array}
+\right.
+$$
+4. 一元函数加 m
+m 固定，$A_m: N \longrightarrow N$
+$$
+\left\{
+\begin{array}{l}
+A_m(0) = m \\\\
+A_m(n^+) = (A_m(n))^+
+\end{array}
+\right.
+$$
+例子:
+$A_2 (3)$ 
+= $A_2 (2^+)$ 
+= $A_2 (2)^+$ 
+= $A_2 (1^+)^+$ 
+= $A_2 (1)^{++}$ 
+= $A_2 (0^+)^{++})$ 
+= $A_2 (0)^{+++}$ 
+= $2^{+++}$ 
+= $3^{++}$ 
+= $4^+$ 
+= 5
+
+##### 5. 集合的等势
+集合 A 与 B 的等势 $\Longleftrightarrow \exists$ 双射，$f: A\Longrightarrow B$ 记作：$A \approx B$
+$N \approx N_偶 =\{n | n \in N \wedge n 为偶数\}$
+$f: N \Longrightarrow N_偶, f (n) = 2n$
+$N \approx N_奇 =\{n | n \in N \wedge n 为奇数\}$
+$f: N \Longrightarrow N_奇, f (n) = 2n+1$
+$N \approx N_2^n =\{x | x = 2^n \wedge n=2^n \}$
+$h: N \Longrightarrow N_2^n, h (n)= 2^n$
+以上都容易证明，f, g, h 都是双射
+
+##### 6. 有群集&无穷集
+有群集就是与某个自然数 n 等势的集合，也就是不能与自身真子集建立双射的集合
+无穷集就是不与某个自然数 n 等势的集合，也就是能与自身真子集建立双射的集合
