@@ -30,6 +30,105 @@ p (G-E') > p (G) 删除一组边
 G-E' 表示从图 G 中删除边的集合 E'中的所有边
 删除全部的边割集里的边使得被删除后的<font color=red>图的联通分支数变大</font>
 
+度：
+设 G=<V, E>为无向图，$v \in V$, 称所有边和 v 关联的次数之和为 v 的度数，简称度，记作 d (v)
+度数为 1 的节点称为悬挂节点
+G 的最大度：$\Delta G = max\{d (v)|v \in V\}$
+G 的最小度：$\delta G= min\{d (v)|v \in V\}$
+所有边的起点和 v 关联的次数之和为 v 的出度，记作 $d^+(v)$
+所有边的终点和 v 关联的次数之和为 v 的入度，记作 $d^-(v)$
+v 的总度数：$d (v)=d^+(v) + d^-(v)$
+
+##### 3. 握手定理
+定理 1：
+设图 G=<V, E>为无向图或有向图，G 中有 n 个节点 $v_1, v_2, v_3,..., v_n$, 有 m 条边（无向或者有向），则图 G 中所有结点的度数之和等于边数的两倍，既：
+$\sum\limits_{i=1}^n d (v_i) = 2m$
+
+设 G 为任意一图，$V_1$ 和 $V_2$ 分别是图 G 中的奇数度数和偶数度数的结点集，根据定理得知
+$\sum\limits_{v \in V_1} d(v) + \sum\limits_{v \in V_2} d(v) + \sum\limits_{v \in V} d (v) = 2m$
+由于 $\sum\limits_{v \in V_2} d (v)$ 是偶数，2m 是偶数，所以 $\sum\limits_{v \in V_1} d (v)$ 是偶数. 对于每个 $v \in V_1$，d (v) 为奇数，所以 $V_1$ 中的结点数目必须为偶数，<font color= red>既度数为奇数的结点的个数必须为偶数</font>
+
+例:
+已知图中 G 有 10 条边，4 个 3 度结点，其余结点的度数均<=2，问 G 中最少有多少个结点？
+设 G 的结点数为 n
+图 G 的结点总度数为 $\sum\limits_{i}d(v_i) \leq 3 \times 4 + 2 \times (n-4)$
+由握手定理得知：$\sum\limits_{i}d (v_i) = 2 \times 10$
+$\therefore \ 2 \times 10 \leq 3 \times 4 + 2 \times (n-4)$
+$\therefore \ = n \geq 8$
+所以图 G 中至少有 8 个结点
+
+定理 2:
+<font color= red>在所有有向图中，所有的结点的入度之和与所有结点的出度之和相等，都等于图中的有向边数</font>
+
+##### 4. 图的分类
+- <font color = red>无向完全图</font>
+定义：
+设图 G=<V, E>是 n 阶无向简单图，若 G 中的任何结点都与其余的 n-1 个结点相邻，则称 G 为 n 阶无向完全图，记作 $K_n (n \geq 1)$
+$\Delta (G) = \delta (G) = n-1$
+n 阶无向完全图的边数 m=n (n-1)/2
+
+- <font color = red>有向完全图</font>
+设图 G=<V, E>是 n 阶有向简单图，若对于 V 中任意的两个结点 u 和 v，既有有向边 (u, v), 又有有向边 (v , u)，则称 G 为 n 阶有向简单图
+``` mermaid
+graph LR
+	a-->b
+	b-->a
+	b-->c
+	c-->b
+	a-->c
+	c-->a
+```
+每个结点的度都为  $\Delta (G) = \delta (G) = 2(n-1)$，边数 m 为 n (n-1)= 3 (3-1)= 6
+
+- 设 G 为任意 n 阶无向简单图，则 $\Delta (G) \leq (n-1)$
+3, 3, 2, 2, 1, 1 则正确
+
+- <font color = red>正则图 </font>
+设 G 为 n 阶无向简单图，若 $\forall v \in V, 均有 d (v) = k$, 则称 G 为 k-正则图
+``` mermaid
+graph LR
+	a-->b
+	a-->c
+	c-->d
+	b-->d
+```
+n 阶 k-正则图的边数 m=nk/2
+
+- <font color = red>环图</font>
+图 G=<V, E>的结点集 $V=\{v_1, v_2, ..., v_n\}(n \geq 3)$, 边集 $E=\{(v_1, v_2), (v_2, v_3), ..., (v_(n-1), v_n), (v_n, v_1)\}$, 则称 G 为环图，记为 $C_n$
+``` mermaid
+graph LR
+a-->b
+b-->c
+c-->a
+```
+$\Delta (G) = \delta (G) = 2$
+环图 $C_n$ 的边数 m=n
+
+- <font color = red>轮图</font>
+给环图 $C_n (n \geq 3)$ 添加一个结点, 并把 $C_n$ 里的每个结点都连接起来称为轮图并记作 $W_n$
+$\Delta (G) = n$, $\delta (G) = 3$
+轮图 $W_n$ 的边数 m=2n
+
+- <font color = red>方体图</font>
+- <font color = red>二分图</font>
+图 G=<V, E>的结点集 V 能划分称两个子集，$V_1$ 和 $V_2$, 使每条边有一个端点在 $V-1$ 中，另一个端点在 $V_2$ 中，则称为此图为二分图
+$V_1=\{u_1, u_2,v_3\}$, $V_2=\{v_1,v_2,v_3\}$
+``` mermaid
+graph
+	u_1-->v_1
+	u_2-->v_2
+	u_3-->v_3
+	u_1<.->v_3
+	u_2<.->v_1
+	u_2<.->v_3
+	u_3<.->v_2
+```
+- <font color=red>完全二分图</font>
+如果 $V_1$ 中的每个结点都能与 $V_2$ 中的每个结点都关联，则称为完全二分图
+若 $|V_1|=m, |V_2|=n$, 记作 $K_{mn}$
+
+
 # 欧拉图&哈密顿图
 欧拉图：
 1.  从某一特定起点出发不重复的遍历完所有边的路径叫做欧拉路径，具有欧拉路径的图叫做半欧拉图
