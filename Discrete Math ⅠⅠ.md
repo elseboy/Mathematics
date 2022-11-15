@@ -209,3 +209,22 @@ $\large {\overline{o_i}([a_1],[a_2], ..., [a_{k_i}])}$
 $=\large{\lfloor o_i (a_1, a_2, ..., a_{k_i}) \rfloor}$
 $\large {= [o_i (b_1, b_2, ..., b_{k_i})]}$
 $\large {\overline{o_i}([b_1], [b_2], ..., [b_{k_i}])}$
+
+##### 同态
+同态基本定理：
+设 $V_1 = <A, 0_1, 0_2, 0_3, ..., 0_r>$ 与 $V_2 = <B, 0_1', 0_2', 0_3', ..., o_r'$ 是同类型的代数系统，对于 $\large {i = 1, 2, 3, ..., r}$, $\large {0_i}$ 与 $\large {0_i'}$ 都是 $\large k_i$ 元运算，$f: \ A \longrightarrow B$ 是 $V_1$ 到 $V_2$ 的同态，关系 R 是 f 导出的 $V_1$ 上的同余关系，则 $\large {V_i}$ 关于同于关系 R 的商代数同构于 $V_1$ 在 f 下的同态像，既：
+$V_1 | R \cong <f(A), 0_1', 0_2', 0_3', ..., o_r'>$
+证明思路：
+1）定义 h：$A/R \longrightarrow f (A), h([a])=f(a)$
+2）验证 h 是良定义的 $[a]=[b] \Longleftrightarrow aRb \Longleftrightarrow f(a)=f(b)$
+3）验证 h 是双射的
+4）验证 h 是同态映射
+考虑任意运算 $\large {\overline{o_i}}$, 设为 $k_i$ 元， $k_i > 0, i=1, 2, ..., r$
+$\color{red}{\large {h(\overline{o_i}}([a_1],[a_2],[a_3], ..., [a_{k_i}]))}$ <font color = green>因为要证明 h 是同态，所以先运算再映射</font>
+$=\color{red}{\large {h([0_i(a_1,a_2,a_3, ..., a_{k_i})])}}$ <font color = green>商代数定义</font>
+$= \color{red}{\large {f(0_i,(a_1,a_2,a_3, ..., a_{k_i}))}}$ <font color = green>h 函数定义</font>
+$=\color{red}{\large {0_i'(f(a_1),f(a_2),f(a_3), ..., f(a_{k_i}))}}$ <font color = green>同态定义</front>
+$=\color{red}{\large {0_i'(h([a_1], h([a_2], h([a_3]), ..., h([a_{k_i}]))))}}$ <font color = green>h 函数定义</font>
+如果是 0 元运算 $[a] \in A/R$，则：
+$\large {h ([a]) = f (a) = a'}$
+且 $a'$ 是 $f(A)$ 中对应的 0 元运算
