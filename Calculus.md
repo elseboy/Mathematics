@@ -213,6 +213,39 @@ $\color{pink}{\large {p (x)= \int_{a}^{x} f(t)dt, \ x \in [a,b]; \ p(x)=f(x)}}$
 例：
 - $\color{orange}{\Large{[\int_{h(x)}^{g(x)}f(t)\ dt]' = f(g(x))\times g(x)' - f(h(x)) \times h(x)'}}$
 
+###### 牛顿莱布尼茨公式 :
+$\color{orange}{\Large{\int_{a}^{b}f (x)\ dx = F (x)|_{a}^{b} = F (b) - F(a)}}$
+
+
+##### 8. 定积分
+$\color{orange}{\Large{\int_{0}^{a}\sqrt{a^2 - x^2}\ dx = \frac{1}{4}\pi a^2}}$
+
+
+##### 9. 广义积分
+
+
+##### 10. 多远函数微积分
+开集：不包含边界点
+闭集：包含边界点以及内点
+
+##### 11. 偏导数
+对 x 求导时，把 y 看做常数不变
+$\color{orange}{\Huge {\lim\limits_{\Delta x \to 0}\frac{\varDelta_x Z}{\varDelta x} = \lim\limits_{\Delta x \to 0}\frac{f(x_0+\varDelta x \times y_0)-f(x_0 \times y_0)}{\varDelta x}}}$
+对 y 求导时，把 x 看做常数不变
+$\color{orange}{\Huge {\lim\limits_{\Delta y \to 0}\frac{\varDelta_y Z}{\varDelta y} = \lim\limits_{\Delta y \to 0}\frac{f(x_0 \times y_0 + \varDelta y)-f(x_0 \times y_0)}{\varDelta y}}}$
+
+##### 12. 全微分
+偏导数是 x 或者 y 发生变化而引起 Z 的变化
+全增量是想 x, y 同时发生变化而引起 z 的变化
+全增量公式：
+$\color{orange}{\Huge {\Delta Z = f(x+\varDelta x, y+\varDelta y)- f(x,y)}}$
+
+##### 13.  二重积分
+计算公式：
+X 型： 
+$\color{orange}{\Huge {\iint \limits_{D}f(x,y)\ dx\ dy = \int_{a}^{b}dx\int_{1(x)}^{2(x)}f(xy)dy}}$
+
+##### 14. 无穷积数
 
 
 
@@ -220,21 +253,7 @@ $\color{pink}{\large {p (x)= \int_{a}^{x} f(t)dt, \ x \in [a,b]; \ p(x)=f(x)}}$
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
 

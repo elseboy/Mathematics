@@ -6,11 +6,12 @@
 imap ;; <Esc>
 
 " beginning/end of line
-nmap [[ ^
-nmap ]] $
+nmap <C-h> ^
+nmap <C-t> $
 
 " previous/next of line
 nmap < (
 nmap > )
 
+" release copy
 iunmap <C-c>
